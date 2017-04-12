@@ -1,0 +1,6 @@
+[0409/155611.726:ERROR:scoped_process_suspend.cc(30)] NtSuspendProcess: Podjêto próbê uzyskania dostêpu do procesu koñcz¹cego dzia³anie.  (0xc000010a)
+[0409/155611.745:ERROR:process_info.cc(116)] ReadProcessMemory bool __cdecl crashpad::`anonymous-namespace'::ReadStruct<struct crashpad::process_types::PEB<struct crashpad::process_types::internal::Traits64>>(void *,unsigned __int64,struct crashpad::process_types::PEB<struct crashpad::process_types::internal::Traits64> *): Ukoñczono tylko czêœæ ¿¹dania ReadProcessMemory lub WriteProcessMemory. (0x12B)
+[0409/155611.757:ERROR:process_info.cc(559)] ReadProcessData failed
+[0409/155611.757:ERROR:process_reader_win.cc(233)] ReadMemory at 0x7fef7493970 of 12 bytes failed: Ukoñczono tylko czêœæ ¿¹dania ReadProcessMemory lub WriteProcessMemory. (0x12B)
+[0409/155611.757:WARNING:process_snapshot_win.cc(68)] ReadMemory ExceptionInformation failed
+[0409/155611.757:WARNING:crash_report_exception_handler.cc(60)] ProcessSnapshotWin::Initialize failed

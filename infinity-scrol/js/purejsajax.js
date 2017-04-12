@@ -51,35 +51,56 @@ function ajax(ajaxOptions) {
 }
 
 
-
-function pobierzDane(event) {
-    event.preventDefault();
-    ajax({
-        url: 'http://echo.jsontest.com/userId/108/userName/Akademia108/userURL/akademia108.pl',
-    });
-
-    ajax({
-                type: 'GET',
-                url: 'http://echo.jsontest.com/userId/108/userName/Akademia108/userURL/akademia108.pl',
-                onSuccess: function (response) {
-
-
-                    console.log('hura, Yupi! pbrałem dane' + response); // tutaj wpisujemy co robimy z danymi z ajax i je np wstrzykujemu w html
-                },
-                onError: function (status) {
-                    alert('Połączenie o statusie' + status);
-                }
-            });
-
-//ajax({
-//    type: 'GET',
-//    url: 'http://echo.jsontest.com/userId/108/userName/Akademia108/userURL/akademia108.pl',
-//    onSuccess: function(response) {
-//        
-//        
-//        console.log('hura, Yupi! pbrałem dane' + response);// tutaj wpisujemy co robimy z danymi z ajax i je np wstrzykujemu w html
-//    },
-//    onError: function(status) {
-//        alert('Połączenie o statusie' + status);
+//function pobierzDane(event) {
+//    event.preventDefault();
+//    ajax({
+//        url: 'https://jsonplaceholder.typicode.com/users',
+//    });
+//
+//    ajax({
+//        type: 'GET',
+//        url: 'https://jsonplaceholder.typicode.com/users',
+//        onSuccess: function (response) {
+//
+//
+//            console.log('hura, Yupi! pbrałem dane' + response); // tutaj wpisujemy co robimy z danymi z ajax i je np wstrzykujemu w html
+//        },
+//        onError: function (status) {
+//            alert('Połączenie o statusie' + status);
+//        }
+//    });
 //}
-//});
+
+window.onscroll = function () {
+    if ((window.innerHeight + window.scrollY) >= document.body.scrollHeight) {
+        ajax({
+            
+            type: 'GET',
+            url: 'https://jsonplaceholder.typicode.com/users',
+            onSuccess: function(response) {
+                
+                var jsonObj = JSON.parse(response);
+                
+                console.log(jsonObj[0]);
+                
+                for (var i = 0; i < jsonObj.length; i++) {
+                    
+                    var parId = document.createElement('p');
+                    var parName = document.createElement('p');
+                    var parURL = document.createElement('p');
+
+
+                    parId.innerHTML = 'User ID: ' + jsonObj[i].id;
+                    parName.innerHTML = 'User Name: ' + jsonObj[i].name;
+                    parURL.innerHTML = 'User WEB: ' + jsonObj[i].email;
+
+
+                    document.body.appendChild(parId);
+                    document.body.appendChild(parName);
+                    document.body.appendChild(parURL);
+
+                }
+            }
+        })
+    }
+}

@@ -70,6 +70,7 @@ function pobierzDane(event) {
                     alert('Połączenie o statusie' + status);
                 }
             });
+}
 
 //ajax({
 //    type: 'GET',
